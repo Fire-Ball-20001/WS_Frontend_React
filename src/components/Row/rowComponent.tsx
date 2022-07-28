@@ -2,17 +2,48 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Movie } from '../../models/Movie';
 
+import './rowStyles.scss';
+
 export interface SingleRowElement {
-    data: Movie,
-    onDelete: CallableFunction
+  data: Movie;
+  onDelete: CallableFunction;
 }
 
 export function RowComponent(props: SingleRowElement) {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const rate = [];
 
-    return <tr><td>{props.data.title}</td>
-    <td>{props.data.rate}</td>
-    <td>{props.data.date}</td>
-    <td><button onClick={() => navigate(`edit/${props.data.id}`)}>Edit</button></td>
-    <td><button onClick={() => props.onDelete(props.data.id)}>Delete</button></td></tr>;
+  for (let i = 0; i < props.data.rate; i++) {
+    rate.push(<p className="star-style">&#xf0ab;</p>);
+  }
+
+  return (
+    <tr className="table__row row-table">
+      <td className="row-table__left-ceil lceil-table common-ceil" onClick={() => navigate(`/details/${props.data.id}`)}>
+        <p>{props.data.title}</p>
+      </td>
+      <td className='common-ceil' onClick={() => navigate(`/details/${props.data.id}`)}>
+        <section className="row-table__rate-ceil rate-ceil">{rate}</section>
+      </td>
+      <td className='common-ceil' onClick={() => navigate(`/details/${props.data.id}`)}>
+        <p>{props.data.date}</p>
+      </td>
+      <td className="row-table__edit-ceil ceil-edit">
+        <button
+          className="row-table__button-edit button-edit"
+          onClick={() => navigate(`edit/${props.data.id}`)}
+        >
+          Edit
+        </button>
+      </td>
+      <td className="row-table__right-ceil rceil-table">
+        <button
+          className="row-table__button-delete button-delete"
+          onClick={() => props.onDelete(props.data.id)}
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  );
 }

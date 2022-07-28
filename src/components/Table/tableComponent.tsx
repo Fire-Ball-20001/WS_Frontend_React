@@ -4,6 +4,8 @@ import { getDataIsPage, getPages } from './pageManager';
 import { PageComponent } from '../pageComponent/PageComponent';
 import { Movie } from '../../models/Movie';
 import { Outlet, useNavigate } from 'react-router-dom';
+
+import './tableStyles.scss';
 export interface Data {
   data: Movie[],
   deleteData: CallableFunction
@@ -15,10 +17,10 @@ export function TableComponent(props: Data) {
   const navigate = useNavigate();
 
   return (
-    <div>
-        <button onClick={() => navigate('create')}>+</button>
-      <table>
-        <tbody>
+    <div className='table-wrapper twrapper'>
+        <button className='twrapper__create-button create-button' onClick={() => navigate('create')}>+</button>
+      <table className='twraper__table table' rules={'rows'}>
+        <tbody className='table__body tbody'>
           {Array.from(getDataIsPage(props.data, page, countsElementsInPage)).map(
             (element) => (
               <RowComponent

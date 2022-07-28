@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PageProps } from '../../interfaces/PageProps';
+import './pageStyles.scss';
 
 export function PageComponent(props: PageProps) {
   const [backButtonEnable, setBackEnable] = useState(true);
@@ -9,21 +10,23 @@ export function PageComponent(props: PageProps) {
     setNextEnable(props.thisPage === props.maxPages ? false : true);
   }, [props.thisPage, props.maxPages]);
   return (
-    <section>
+    <section className="twrapper__page-section page-section">
       <button
+        className="page-section__left-button lbutton"
         onClick={() => props.setPage(props.thisPage - 2)}
         disabled={!backButtonEnable}
       >
-        back
+        &lt;
       </button>
-      <p>{props.thisPage}</p>
-      <p>/</p>
-      <p>{props.maxPages}</p>
+      <p className="page-section__page-text page-text">
+        {props.thisPage}/{props.maxPages}
+      </p>
       <button
+        className="page-section__right-button rbutton"
         onClick={() => props.setPage(props.thisPage)}
         disabled={!nextButtonEnable}
       >
-        next
+        &gt;
       </button>
     </section>
   );

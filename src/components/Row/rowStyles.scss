@@ -1,0 +1,64 @@
+@import '../../styles/variables';
+
+%button-ceil {
+  width: $table-button-width + 2;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.row-table {
+  border-radius: 5px;
+  border: 3px solid $background-table;
+  background: #fff;
+  width: 100%;
+  height: min-content;
+}
+
+.lceil-table {
+  border-radius: 5px 0 0 5px;
+  border: none;
+}
+
+.rceil-table {
+  @extend %button-ceil;
+
+  border-radius: 0 5px 5px 0;
+  border: none;
+}
+
+.star-style {
+  color: gold;
+  font-family: Wingdings, sans-serif;
+}
+
+.rate-ceil {
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.ceil-edit {
+  @extend %button-ceil;
+}
+
+.button-delete {
+  background: red;
+  color: #fff;
+  border-radius: 5px;
+  width: $table-button-width;
+  height: $table-button-height;
+}
+
+.button-edit {
+  background: green;
+  color: #fff;
+  border-radius: 5px;
+  width: $table-button-width;
+  height: $table-button-height;
+}
+
+.common-ceil {
+  cursor: pointer;
+}

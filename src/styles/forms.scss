@@ -1,0 +1,94 @@
+@import 'variables';
+@import 'globalStyles';
+
+%form-wrapper-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+%form-input {
+  border-radius: 5px;
+  border: 1px solid #888;
+}
+
+.form-wrapper {
+  background: #00000032;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.form {
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  position: relative;
+  left: 39%;
+  top: 30%;
+}
+
+.fheader-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.ftitle-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.frate-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.fcomment-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.fdate-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.form-header {
+  @extend %reset-style;
+
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.ftitle {
+  @extend %form-input;
+}
+
+.frate {
+  @extend %form-input;
+}
+
+.fcomment {
+  @extend %form-input;
+
+  height: 50px;
+  resize: none;
+}
+
+.fdate {
+  @extend %form-input;
+}
+
+.input-error {
+  border-color: red;
+  outline-color: red;
+}
+
+.fbutton-submit {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background: green;
+  color: white;
+}
+
+.close-button {
+  color: red;
+}

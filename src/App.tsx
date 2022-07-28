@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import firstData from './assets/data/MOVIES.json';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CreateForm } from './components/createFormComponent/createForm';
 import { CreateFormData } from './interfaces/CreateFormData';
 import { TableComponent } from './components/Table/tableComponent';
@@ -8,6 +7,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { Movie } from './models/Movie';
 import { EditForm } from './components/editFormComponent/editForm';
 import { EditFormData } from './interfaces/EditFormData';
+
+import './styles/globalStyles.scss';
+import './styles/fonts.scss';
+import './assets/fonts/wingding.ttf';
+
+import firstData from './assets/data/MOVIES.json';
+import { DetailsComponent } from './components/detailsComponent/detailsComponent';
 
 function App() {
   const [data, setData] = useState(firstData);
@@ -34,6 +40,10 @@ function App() {
           <Route
             path="edit/:id"
             element={<EditForm movies={data} onSumbit={editMovie} setData={setData} />}
+          ></Route>
+          <Route
+            path="details/:id"
+            element={<DetailsComponent data={data}/>}
           ></Route>
         </Route>
       </Routes>

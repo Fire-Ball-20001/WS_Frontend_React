@@ -1,7 +1,10 @@
+import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { CreateFormData } from '../../interfaces/CreateFormData';
 import { CreateFormProps } from '../../interfaces/CreateFormProps';
+
+import '../../styles/forms.scss';
 
 export function CreateForm(props: CreateFormProps) {
   const {
@@ -12,40 +15,100 @@ export function CreateForm(props: CreateFormProps) {
 
   const navigate = useNavigate();
 
+  const formWidhtPx = 350;
+
   const submit: SubmitHandler<CreateFormData> = (data) => {
     props.onSumbit(data, props.setData);
     navigate('/');
   };
+  const formLeft = (100 - (formWidhtPx / window.innerWidth) * 100) / 2;
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(submit)}>
-        <div>
-          <input type="text" {...register('title', { required: true })} />
-          {errors.title && <p>Error Title</p>}
+    <section
+      className="form-wrapper"
+      onClick={(event) => closeForm(event, navigate)}
+    >
+      <form
+        className="form"
+        onClick={(event) => event.preventDefault()}
+        style={{ width: `${formWidhtPx}px`, left: `${formLeft}%` }}
+        onSubmit={handleSubmit(submit)}
+      >
+        <div className="form__header-wrapper fheader-wrapper">
+          <h1 className="form__header form-header">Добавить фильм</h1>
+          <button
+            className="form__close-button close-button"
+            onClick={(event) => closeForm(event, navigate)}
+          >
+            X
+          </button>
         </div>
-        <div>
+        <div className="form__title-wrapper ftitle-wrapper">
+          <label htmlFor="form-title" className="form-label">
+            Наименование
+          </label>
           <input
+            id="form-title"
+            className={`form__title ftitle ${
+              (errors.title && 'input-error') || (!errors.title && '')
+            }`}
+            type="text"
+            {...register('title', { required: true })}
+          />
+        </div>
+        <div className="form__rate-wrapper frate-wrapper">
+          <label htmlFor="form-rate" className="form-label">
+            Оценка
+          </label>
+          <input
+            id="form-rate"
+            className={`form__rate-wrapper frate ${
+              (errors.rate && 'input-error') || (!errors.rate && '')
+            }`}
             type="number"
             {...register('rate', {
               max: 5,
-              min: 0,
+              min: 1,
               required: true,
               valueAsNumber: true,
             })}
           />
-          {errors.rate && <p>Error Rate</p>}
         </div>
-        <textarea {...register('comment', { maxLength: 200 })}></textarea>
-        <div>
-          <input
-            type="date"
-            {...register('date', { required: true})}
+        <div className="form__comment-wrapper fcomment-wrapper">
+          <label htmlFor="form-comment" className="form-label">
+            Описание
+          </label>
+          <textarea
+            id="form-comment"
+            className={`form__comment fcomment ${
+              (errors.comment && 'input-error') || (!errors.comment && '')
+            }`}
+            {...register('comment', { maxLength: 200 })}
           />
-          {errors.date && <p>Error Date</p>}
         </div>
-        <button>Submit</button>
+        <div className="form__date-wrapper fdate-wrapper">
+          <label htmlFor="form-date" className="form-label">
+            Дата
+          </label>
+          <input
+            id="form-date"
+            className={`form__date fdate ${
+              (errors.date && 'input-error') || (!errors.date && '')
+            }`}
+            type="date"
+            {...register('date', { required: true })}
+          />
+        </div>
+        <button className="form__button-submit fbutton-submit">Принять</button>
       </form>
     </section>
   );
+}
+
+function closeForm(
+  event: React.MouseEvent<HTMLElement, globalThis.MouseEvent>,
+  navigate: NavigateFunction
+) {
+  navigate('/');
+  event.preventDefault();
 }
