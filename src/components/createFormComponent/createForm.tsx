@@ -2,7 +2,7 @@ import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { CreateFormData } from '../../interfaces/createFormData';
-import { CreateFormProps } from '../../interfaces/createFormProps';
+import { CreateFormProps } from '../../interfaces/CreateFormProps';
 
 import '../../styles/forms.scss';
 
@@ -75,7 +75,7 @@ export function CreateForm(props: CreateFormProps) {
             })}
           />
         </div>
-        <div className="form__comment-wrapper fcomment-wrapper">
+        <div className="form__comment-wrapper form-comment-wrapper">
           <label htmlFor="form-comment" className="form-label">
             Описание
           </label>

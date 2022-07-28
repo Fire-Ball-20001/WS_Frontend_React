@@ -11,19 +11,15 @@ export interface SingleRowElement {
 
 export function RowComponent(props: SingleRowElement) {
   const navigate = useNavigate();
-  const rate = [];
-
-  for (let i = 0; i < props.data.rate; i++) {
-    rate.push(<p className="star-style">&#xf0ab;</p>);
-  }
-
+  const rate: number[] = new Array(props.data.rate);
+  rate.fill(0);
   return (
     <tr className="table__row row-table">
       <td className="row-table__left-ceil lceil-table common-ceil" onClick={() => navigate(`/details/${props.data.id}`)}>
         <p>{props.data.title}</p>
       </td>
       <td className='common-ceil' onClick={() => navigate(`/details/${props.data.id}`)}>
-        <section className="row-table__rate-ceil rate-ceil">{rate}</section>
+        <section className="row-table__rate-ceil rate-ceil">{rate.map((_, index: number) => <p key={index} className="star-style">&#xf0ab;</p> )}</section>
       </td>
       <td className='common-ceil' onClick={() => navigate(`/details/${props.data.id}`)}>
         <p>{props.data.date}</p>

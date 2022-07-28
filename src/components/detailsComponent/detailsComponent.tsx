@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigateFunction, useNavigate, useParams } from 'react-router-dom';
-import { DetailsProps } from '../../interfaces/detailsProps';
+import { DetailsProps } from '../../interfaces/DetailsProps';
 import { Movie } from '../../models/movie';
 
 import './detailsStyles.scss';
@@ -17,11 +17,8 @@ export function DetailsComponent(props: DetailsProps) {
     navigate('/');
     return <></>;
   }
-  const rate = [];
-
-  for (let i = 0; i < movie.rate; i++) {
-    rate.push(<p className="star-style">&#xf0ab;</p>);
-  }
+  const rate:number[] = new Array(movie.rate);
+  rate.fill(0);
 
   const formWidthPx = 350;
 
@@ -51,7 +48,7 @@ export function DetailsComponent(props: DetailsProps) {
         </div>
         <div className="details__rate-wrapper details-content-wrapper">
           <p className="details-label">Оценка:</p>
-          <section className="details__rate details-rate">{rate}</section>
+          <section className="details__rate details-rate">{rate.map((_, index: number) => <p key={index} className="star-style">&#xf0ab;</p> )}</section>
         </div>
         <div className="details__comment-wrapper details-content-wrapper">
           <p className="details-label">Описание:</p>

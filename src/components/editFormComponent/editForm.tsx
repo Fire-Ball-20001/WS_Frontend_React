@@ -2,7 +2,7 @@ import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NavigateFunction, useNavigate, useParams } from 'react-router-dom';
 import { EditFormData } from '../../interfaces/editFormData';
-import { EditFormProps } from '../../interfaces/editFormProps';
+import { EditFormProps } from '../../interfaces/EditFormProps';
 import { Movie } from '../../models/movie';
 
 import '../../styles/forms.scss';
@@ -84,7 +84,7 @@ export function EditForm(props: EditFormProps) {
             })}
           />
         </div>
-        <div className="form__comment-wrapper fcomment-wrapper">
+        <div className="form__comment-wrapper form-comment-wrapper">
           <label htmlFor='form-comment' className="form-label">Описание</label>
           <textarea
           defaultValue={movie.comment as string}
@@ -95,7 +95,7 @@ export function EditForm(props: EditFormProps) {
             {...register('comment', { maxLength: 200 })}
           />
         </div>
-        <div className="form__date-wrapper fdate-wrapper">
+        <div className="form__date-wrapper form-date-wrapper">
           <label htmlFor='form-date' className="form-label">Дата</label>
           <input
           defaultValue={movie.date}
