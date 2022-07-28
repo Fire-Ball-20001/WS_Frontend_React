@@ -17,7 +17,7 @@ export function EditForm(props: EditFormProps) {
   const params = useParams();
 
   const movie: Movie | undefined = props.movies.find(
-    (element) => element.id === params.id
+    movie => movie.id === params.id
   );
 
   if (!movie) {

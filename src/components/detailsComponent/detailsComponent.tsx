@@ -10,7 +10,7 @@ export function DetailsComponent(props: DetailsProps) {
   const navigate = useNavigate();
 
   const movie: Movie | undefined = props.movies.find(
-    (element) => element.id === params.id
+    movie => movie.id === params.id
   );
 
   if (!movie) {
