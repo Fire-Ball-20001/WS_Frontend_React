@@ -1,4 +1,4 @@
-import { Movie } from '../models/Movie';
+import { Movie } from '../models/movie';
 
 export interface EditFormProps {
   onSumbit: CallableFunction;

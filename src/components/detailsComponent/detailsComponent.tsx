@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigateFunction, useNavigate, useParams } from 'react-router-dom';
-import { DetailsProps } from '../../interfaces/DetailsProps';
-import { Movie } from '../../models/Movie';
+import { DetailsProps } from '../../interfaces/detailsProps';
+import { Movie } from '../../models/movie';
 
 import './detailsStyles.scss';
 

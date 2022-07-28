@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CreateForm } from './components/createFormComponent/createForm';
-import { CreateFormData } from './interfaces/CreateFormData';
+import { CreateFormData } from './interfaces/createFormData';
 import { TableComponent } from './components/Table/tableComponent';
 import { v4 as uuidv4 } from 'uuid';
-import { Movie } from './models/Movie';
+import { Movie } from './models/movie';
 import { EditForm } from './components/editFormComponent/editForm';
-import { EditFormData } from './interfaces/EditFormData';
+import { EditFormData } from './interfaces/editFormData';
 
 import './styles/globalStyles.scss';
 import './styles/fonts.scss';

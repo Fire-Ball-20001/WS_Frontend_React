@@ -1,8 +1,8 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { CreateFormData } from '../../interfaces/CreateFormData';
-import { CreateFormProps } from '../../interfaces/CreateFormProps';
+import { CreateFormData } from '../../interfaces/createFormData';
+import { CreateFormProps } from '../../interfaces/createFormProps';
 
 import '../../styles/forms.scss';
 

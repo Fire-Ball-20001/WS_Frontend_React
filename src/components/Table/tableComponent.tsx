@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RowComponent} from '../Row/rowComponent';
 import { getDataIsPage, getPages } from './pageManager';
 import { PageComponent } from '../pageComponent/PageComponent';
-import { Movie } from '../../models/Movie';
+import { Movie } from '../../models/movie';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 import './tableStyles.scss';

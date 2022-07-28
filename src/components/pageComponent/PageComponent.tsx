@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PageProps } from '../../interfaces/PageProps';
+import { PageProps } from '../../interfaces/pageProps';
 import './pageStyles.scss';
 
 export function PageComponent(props: PageProps) {

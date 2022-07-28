@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Movie } from '../../models/Movie';
+import { Movie } from '../../models/movie';
 
 import './rowStyles.scss';
 
