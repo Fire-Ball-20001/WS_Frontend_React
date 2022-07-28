@@ -30,7 +30,7 @@ export function CreateForm(props: CreateFormProps) {
     >
       <form
         className="form"
-        onClick={event => event.preventDefault()}
+        onClick={event => { event.stopPropagation()}}
         style={{ width: `${formWidthPx}px`, left: `${formLeft}%` }}
         onSubmit={handleSubmit(submit)}
       >
