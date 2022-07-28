@@ -26,11 +26,11 @@ export function CreateForm(props: CreateFormProps) {
   return (
     <section
       className="form-wrapper"
-      onClick={(event) => closeForm(event, navigate)}
+      onClick={event => closeForm(event, navigate)}
     >
       <form
         className="form"
-        onClick={(event) => event.preventDefault()}
+        onClick={event => event.preventDefault()}
         style={{ width: `${formWidhtPx}px`, left: `${formLeft}%` }}
         onSubmit={handleSubmit(submit)}
       >

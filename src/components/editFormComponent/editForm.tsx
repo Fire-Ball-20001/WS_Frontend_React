@@ -37,11 +37,11 @@ export function EditForm(props: EditFormProps) {
 
   return (
     <section className="form-wrapper"
-    onClick={(event) => closeForm(event, navigate)}
+    onClick={event => closeForm(event, navigate)}
     >
       <form
         className="form"
-        onClick={(event) => event.preventDefault()}
+        onClick={event => event.preventDefault()}
         style={{ width: `${formWidhtPx}px`, left: `${formLeft}%` }}
         onSubmit={handleSubmit(submit)}
       >
@@ -49,7 +49,7 @@ export function EditForm(props: EditFormProps) {
           <h1 className="form__header form-header">Изменить фильм</h1>
           <button
             className="form__close-button close-button"
-            onClick={(event) => closeForm(event, navigate)}
+            onClick={event => closeForm(event, navigate)}
           >
             X
           </button>

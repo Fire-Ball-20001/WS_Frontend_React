@@ -39,7 +39,7 @@ export function DetailsComponent(props: DetailsProps) {
           <h1 className="details__header details-header">Детали</h1>
           <button
             className="details__close-button close-button"
-            onClick={(event) => closeDetails(event, navigate)}
+            onClick={event => closeDetails(event, navigate)}
           >
             X
           </button>

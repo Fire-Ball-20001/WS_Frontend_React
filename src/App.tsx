@@ -22,7 +22,7 @@ function App() {
     setData((oldData) => {
       const deleteFilms = oldData.filter((element) => element.id === deleteId);
       return oldData.filter(
-        (movie) => !deleteFilms.find((deleteMovie) => movie === deleteMovie)
+        movie => !deleteFilms.find((deleteMovie) => movie === deleteMovie)
       );
     });
   }, [deleteId]);
