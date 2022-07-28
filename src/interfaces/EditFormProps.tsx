@@ -2,6 +2,6 @@ import { Movie } from '../models/Movie';
 
 export interface EditFormProps {
   onSumbit: CallableFunction;
-  setData: CallableFunction;
+  setMovies: CallableFunction;
   movies: Movie[];
 }

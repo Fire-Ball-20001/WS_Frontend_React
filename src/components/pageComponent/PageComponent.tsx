@@ -6,8 +6,8 @@ export function PageComponent(props: PageProps) {
   const [backButtonEnable, setBackEnable] = useState(true);
   const [nextButtonEnable, setNextEnable] = useState(true);
   useEffect(() => {
-    setBackEnable(props.thisPage === 1 ? false : true);
-    setNextEnable(props.thisPage === props.maxPages ? false : true);
+    setBackEnable(props.thisPage !== 1);
+    setNextEnable(props.thisPage !== props.maxPages);
   }, [props.thisPage, props.maxPages]);
   return (
     <section className="twrapper__page-section page-section">

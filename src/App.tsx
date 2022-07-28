@@ -16,63 +16,58 @@ import firstData from './assets/data/MOVIES.json';
 import { DetailsComponent } from './components/detailsComponent/detailsComponent';
 
 function App() {
-  const [data, setData] = useState(firstData);
+  const [movies, setMovies] = useState(firstData);
   const [deleteId, setDeleteId] = useState('');
   useEffect(() => {
-    setData((oldData) => {
-      const deleteFilms = oldData.filter((element) => element.id === deleteId);
-      return oldData.filter(
-        movie => !deleteFilms.find((deleteMovie) => movie === deleteMovie)
-      );
-    });
+    setMovies((oldData) => oldData.filter(movie => movie.id !== deleteId));
   }, [deleteId]);
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={<TableComponent data={data} deleteData={setDeleteId} />}
+          element={<TableComponent data={movies} deleteData={setDeleteId} />}
         >
           <Route
             path="create"
-            element={<CreateForm onSumbit={addMovie} setData={setData} />}
-          ></Route>
+            element={<CreateForm onSumbit={addMovie} setMovies={setMovies} />}
+          />
           <Route
             path="edit/:id"
-            element={<EditForm movies={data} onSumbit={editMovie} setData={setData} />}
-          ></Route>
+            element={<EditForm movies={movies} onSumbit={editMovie} setMovies={setMovies} />}
+          />
           <Route
             path="details/:id"
-            element={<DetailsComponent data={data}/>}
-          ></Route>
+            element={<DetailsComponent movies={movies}/>}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-function addMovie(data: CreateFormData, setData: CallableFunction) {
-  setData((oldData: Movie[]) => {
+function addMovie(movies: CreateFormData, setMovies: CallableFunction) {
+  setMovies((oldData: Movie[]) => {
     const movie: Movie = {
       id: uuidv4(),
-      title: data.title,
-      rate: data.rate,
-      comment: data.comment,
-      date: data.date,
+      title: movies.title,
+      rate: movies.rate,
+      comment: movies.comment,
+      date: movies.date,
     };
     oldData.push(movie);
     return oldData;
   });
 }
 
-function editMovie(data: EditFormData, setData: CallableFunction) {
-  setData((oldData: Movie[]) => {
+function editMovie(movies: EditFormData, setMovies: CallableFunction) {
+  setMovies((oldData: Movie[]) => {
     const movie: Movie = {
-      id: data.id,
-      title: data.title,
-      rate: data.rate,
-      comment: data.comment,
-      date: data.date,
+      id: movies.id,
+      title: movies.title,
+      rate: movies.rate,
+      comment: movies.comment,
+      date: movies.date,
     };
     return oldData.map(element => element.id===movie.id ? movie : element);
   });

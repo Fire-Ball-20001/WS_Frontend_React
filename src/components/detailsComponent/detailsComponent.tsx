@@ -9,12 +9,12 @@ export function DetailsComponent(props: DetailsProps) {
   const params = useParams();
   const navigate = useNavigate();
 
-  const movie: Movie | undefined = props.data.find(
+  const movie: Movie | undefined = props.movies.find(
     (element) => element.id === params.id
   );
 
   if (!movie) {
-    navigate(-1);
+    navigate('/');
     return <></>;
   }
   const rate = [];
@@ -23,9 +23,9 @@ export function DetailsComponent(props: DetailsProps) {
     rate.push(<p className="star-style">&#xf0ab;</p>);
   }
 
-  const formWidhtPx = 350;
+  const formWidthPx = 350;
 
-  const formLeft = (100 - (formWidhtPx / window.innerWidth) * 100) / 2;
+  const formLeft = (100 - (formWidthPx / window.innerWidth) * 100) / 2;
 
   return (
     <section
@@ -33,7 +33,7 @@ export function DetailsComponent(props: DetailsProps) {
     >
       <div
         className="details"
-        style={{ width: `${formWidhtPx}px`, left: `${formLeft}%` }}
+        style={{ width: `${formWidthPx}px`, left: `${formLeft}%` }}
       >
         <div className="details__header-wrapper details-content-wrapper">
           <h1 className="details__header details-header">Детали</h1>

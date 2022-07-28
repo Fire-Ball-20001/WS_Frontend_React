@@ -22,9 +22,9 @@ export function TableComponent(props: Data) {
       <table className='twraper__table table' rules={'rows'}>
         <tbody className='table__body tbody'>
           {Array.from(getDataIsPage(props.data, page, countsElementsInPage)).map(
-            (element) => (
+            (element: Movie, index: number) => (
               <RowComponent
-                key={element.id}
+                key={index}
                 data={element}
                 onDelete={props.deleteData}
               />

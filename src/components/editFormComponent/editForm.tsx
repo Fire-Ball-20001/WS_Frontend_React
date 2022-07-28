@@ -25,24 +25,25 @@ export function EditForm(props: EditFormProps) {
     return <></>;
   }
 
-  const formWidhtPx = 350;
+  const formWidthPx = 350;
 
-  const formLeft = (100 - (formWidhtPx / window.innerWidth) * 100) / 2;
+  const formLeft = (100 - (formWidthPx / window.innerWidth) * 100) / 2;
 
   const submit: SubmitHandler<EditFormData> = (data) => {
     data.id=movie.id;
-    props.onSumbit(data, props.setData);
+    props.onSumbit(data, props.setMovies);
     navigate('/');
   };
 
   return (
-    <section className="form-wrapper"
-    onClick={event => closeForm(event, navigate)}
+    <section 
+      className="form-wrapper"
+      onClick={event => closeForm(event, navigate)}
     >
       <form
         className="form"
         onClick={event => event.preventDefault()}
-        style={{ width: `${formWidhtPx}px`, left: `${formLeft}%` }}
+        style={{ width: `${formWidthPx}px`, left: `${formLeft}%` }}
         onSubmit={handleSubmit(submit)}
       >
         <div className="form__header-wrapper fheader-wrapper">
