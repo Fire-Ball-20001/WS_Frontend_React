@@ -21,7 +21,8 @@ export function CreateForm(props: CreateFormProps) {
     props.onSumbit(data, props.setMovies);
     navigate('/');
   };
-  const formLeft = (100 - (formWidthPx / window.innerWidth) * 100) / 2;
+  const maxProcents = 100;
+  const formLeft = (maxProcents - (formWidthPx / window.innerWidth) * maxProcents) / 2;
 
   return (
     <section
@@ -30,7 +31,7 @@ export function CreateForm(props: CreateFormProps) {
     >
       <form
         className="form"
-        onClick={event => { event.stopPropagation()}}
+        onClick={event => event.stopPropagation()}
         style={{ width: `${formWidthPx}px`, left: `${formLeft}%` }}
         onSubmit={handleSubmit(submit)}
       >

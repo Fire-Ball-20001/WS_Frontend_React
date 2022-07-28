@@ -25,7 +25,8 @@ export function DetailsComponent(props: DetailsProps) {
 
   const formWidthPx = 350;
 
-  const formLeft = (100 - (formWidthPx / window.innerWidth) * 100) / 2;
+  const maxProcents = 100;
+  const formLeft = (maxProcents - (formWidthPx / window.innerWidth) * maxProcents) / 2;
 
   return (
     <section

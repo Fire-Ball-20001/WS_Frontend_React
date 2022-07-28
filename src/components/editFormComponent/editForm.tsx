@@ -26,8 +26,8 @@ export function EditForm(props: EditFormProps) {
   }
 
   const formWidthPx = 350;
-
-  const formLeft = (100 - (formWidthPx / window.innerWidth) * 100) / 2;
+  const maxProcents = 100;
+  const formLeft = (maxProcents - (formWidthPx / window.innerWidth) * maxProcents) / 2;
 
   const submit: SubmitHandler<EditFormData> = (data) => {
     data.id=movie.id;
