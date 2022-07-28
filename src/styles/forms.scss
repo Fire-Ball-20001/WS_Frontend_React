@@ -30,23 +30,23 @@
   top: 30%;
 }
 
-.fheader-wrapper {
+.form-header-wrapper {
   @extend %form-wrapper-content;
 }
 
-.ftitle-wrapper {
+.form-title-wrapper {
   @extend %form-wrapper-content;
 }
 
-.frate-wrapper {
+.form-rate-wrapper {
   @extend %form-wrapper-content;
 }
 
-.fcomment-wrapper {
+.form-comment-wrapper {
   @extend %form-wrapper-content;
 }
 
-.fdate-wrapper {
+.form-date-wrapper {
   @extend %form-wrapper-content;
 }
 
@@ -57,22 +57,22 @@
   font-size: 25px;
 }
 
-.ftitle {
+.form-title {
   @extend %form-input;
 }
 
-.frate {
+.form-rate {
   @extend %form-input;
 }
 
-.fcomment {
+.form-comment {
   @extend %form-input;
 
   height: 50px;
   resize: none;
 }
 
-.fdate {
+.form-date {
   @extend %form-input;
 }
 
@@ -81,7 +81,7 @@
   outline-color: red;
 }
 
-.fbutton-submit {
+.form-button-submit {
   border-radius: 5px;
   border: 1px solid transparent;
   background: green;

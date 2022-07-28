@@ -34,7 +34,7 @@ export function CreateForm(props: CreateFormProps) {
         style={{ width: `${formWidthPx}px`, left: `${formLeft}%` }}
         onSubmit={handleSubmit(submit)}
       >
-        <div className="form__header-wrapper fheader-wrapper">
+        <div className="form__header-wrapper form-header-wrapper">
           <h1 className="form__header form-header">Добавить фильм</h1>
           <button
             className="form__close-button close-button"
@@ -43,26 +43,26 @@ export function CreateForm(props: CreateFormProps) {
             X
           </button>
         </div>
-        <div className="form__title-wrapper ftitle-wrapper">
+        <div className="form__title-wrapper form-title-wrapper">
           <label htmlFor="form-title" className="form-label">
             Наименование
           </label>
           <input
             id="form-title"
-            className={`form__title ftitle ${
+            className={`form__title form-title ${
               (errors.title && 'input-error') || (!errors.title && '')
             }`}
             type="text"
             {...register('title', { required: true })}
           />
         </div>
-        <div className="form__rate-wrapper frate-wrapper">
+        <div className="form__rate-wrapper form-rate-wrapper">
           <label htmlFor="form-rate" className="form-label">
             Оценка
           </label>
           <input
             id="form-rate"
-            className={`form__rate-wrapper frate ${
+            className={`form__rate-wrapper form-rate ${
               (errors.rate && 'input-error') || (!errors.rate && '')
             }`}
             type="number"
@@ -80,26 +80,26 @@ export function CreateForm(props: CreateFormProps) {
           </label>
           <textarea
             id="form-comment"
-            className={`form__comment fcomment ${
+            className={`form__comment form-comment ${
               (errors.comment && 'input-error') || (!errors.comment && '')
             }`}
             {...register('comment', { maxLength: 200 })}
           />
         </div>
-        <div className="form__date-wrapper fdate-wrapper">
+        <div className="form__date-wrapper form-date-wrapper">
           <label htmlFor="form-date" className="form-label">
             Дата
           </label>
           <input
             id="form-date"
-            className={`form__date fdate ${
+            className={`form__date form-date ${
               (errors.date && 'input-error') || (!errors.date && '')
             }`}
             type="date"
             {...register('date', { required: true })}
           />
         </div>
-        <button className="form__button-submit fbutton-submit">Принять</button>
+        <button className="form__button-submit form-button-submit">Принять</button>
       </form>
     </section>
   );

@@ -46,23 +46,23 @@ export function DetailsComponent(props: DetailsProps) {
         </div>
         <div className="details__title-wrapper details-content-wrapper">
           <p className="details-label">Наименование:</p>
-          <p className="details__title dtitle">{movie.title}</p>
+          <p className="details__title details-title">{movie.title}</p>
         </div>
         <div className="details__rate-wrapper details-content-wrapper">
           <p className="details-label">Оценка:</p>
-          <section className="details__rate drate">{rate}</section>
+          <section className="details__rate details-rate">{rate}</section>
         </div>
         <div className="details__comment-wrapper details-content-wrapper">
           <p className="details-label">Описание:</p>
           <textarea
             readOnly={true}
             defaultValue={movie.comment as string}
-            className="details__comment dcomment"
+            className="details__comment details-comment"
           />
         </div>
         <div className="details__date-wrapper details-content-wrapper">
           <p className="details-label">Дата:</p>
-          <p defaultValue={movie.date} className="details__date ddate">
+          <p defaultValue={movie.date} className="details__date details-date">
             {movie.date}
           </p>
         </div>
