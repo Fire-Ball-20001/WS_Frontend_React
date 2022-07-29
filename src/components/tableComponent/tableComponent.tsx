@@ -51,14 +51,14 @@ export function TableComponent() {
         <button
           title='Update'
           onClick={() => setOnUpdate(true)}
-          className="twrapper__update-button update-button"
+          className="table-wrapper__update-button update-button"
         >
-          r
+          Update
         </button>
       </section>
       <table className="table-wraper__table table" rules={'rows'}>
         <tbody className="table__body table-body">
-          {Array.from(movies).map((element: MovieListDto, index: number) => (
+          {movies.map((element: MovieListDto, index: number) => (
             <RowComponent key={index} data={element} onUpdate={setOnUpdate} />
           ))}
         </tbody>
