@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NavigateFunction, useNavigate, useParams } from 'react-router-dom';
 import { EditFormData } from '../../interfaces/editFormData';
@@ -15,6 +15,7 @@ export function EditForm(props: EditFormProps) {
   } = useForm<EditFormData>();
   const navigate = useNavigate();
   const params = useParams();
+  const [errorDate, setErrorDate] = useState(false);
 
   const movie: Movie | undefined = props.movies.find(
     (movie: Movie) => movie.id === params.id
@@ -30,6 +31,10 @@ export function EditForm(props: EditFormProps) {
   const formLeft = (maxProcents - (formWidthPx / window.innerWidth) * maxProcents) / 2;
 
   const submit: SubmitHandler<EditFormData> = (data) => {
+    if(Date.parse(data.date)>Date.now()) {
+      setErrorDate(true);
+      return;
+    }
     data.id=movie.id;
     props.onSumbit(data, props.setMovies);
     navigate('/');
@@ -101,7 +106,7 @@ export function EditForm(props: EditFormProps) {
           defaultValue={movie.date}
           id='form-date'
             className={`form__date form-date ${
-              (errors.date && 'input-error') || (!errors.date && '')
+              ((errors.date || errorDate) && 'input-error') || (!errors.date && '')
             }`}
             type="date"
             {...register('date', { required: true })}
