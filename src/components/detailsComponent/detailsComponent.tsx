@@ -14,6 +14,7 @@ export function DetailsComponent() {
 
   if (!params.id) {
     navigate('/');
+    return <></>;
   }
 
 

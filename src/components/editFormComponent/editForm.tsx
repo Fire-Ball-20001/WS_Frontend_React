@@ -33,7 +33,9 @@ export function EditForm() {
       setErrorDate(true);
       return;
     }
-    updateMovie(params.id as string,data);
+    if(params.id) {
+      updateMovie(params.id,data);
+    }
     navigate('/');
   };
 
