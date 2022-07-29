@@ -2,7 +2,7 @@ import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NavigateFunction, useNavigate, useParams } from 'react-router-dom';
 import { EditFormData } from '../../interfaces/editFormData';
-import { EditFormProps } from '../../interfaces/EditFormProps';
+import { EditFormProps } from '../../interfaces/editFormProps';
 import { Movie } from '../../models/movie';
 
 import '../../styles/forms.scss';
