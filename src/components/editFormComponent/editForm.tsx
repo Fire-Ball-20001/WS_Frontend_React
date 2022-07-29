@@ -19,11 +19,6 @@ export function EditForm() {
   const [isRender, setRender] = useState(false);
   const [movie, setMovie] = useState<MovieDto | null>(null);
 
-    if(!params.id) {
-      navigate('/');
-      return <></>;
-    }
-
   const formWidthPx = 350;
   const maxProcents = 100;
   const formLeft = (maxProcents - (formWidthPx / window.innerWidth) * maxProcents) / 2;
@@ -40,6 +35,9 @@ export function EditForm() {
   };
 
   useEffect(() => {
+    if(!params.id) {
+      navigate('/');
+    }
     getMovie(params.id as string).then(dto => {
       setMovie(dto);
       setRender(true);

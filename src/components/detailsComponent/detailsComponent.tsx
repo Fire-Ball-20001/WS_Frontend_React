@@ -12,12 +12,6 @@ export function DetailsComponent() {
   const [movie, setMovie] = useState<MovieDto | null>(null);
   const [rate, setRate] = useState<number[]>([]);
 
-  if (!params.id) {
-    navigate('/');
-    return <></>;
-  }
-
-
   const formWidthPx = 350;
 
   const maxProcents = 100;
@@ -25,6 +19,9 @@ export function DetailsComponent() {
     (maxProcents - (formWidthPx / window.innerWidth) * maxProcents) / 2;
 
   useEffect(() => {
+    if (!params.id) {
+      navigate('/');
+    }
     getMovie(params.id as string).then((dto) => {
       setMovie(dto);
       setRender(true);
