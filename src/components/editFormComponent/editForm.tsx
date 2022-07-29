@@ -16,7 +16,7 @@ export function EditForm() {
   const navigate = useNavigate();
   const params = useParams();
   const [errorDate, setErrorDate] = useState(false);
-  const [isRender, setRender] = useState(false);
+  const [isMovieLoaded, setMovieLoaded] = useState(false);
   const [movie, setMovie] = useState<MovieDto | null>(null);
 
   const formWidthPx = 350;
@@ -40,7 +40,7 @@ export function EditForm() {
     }
     getMovie(params.id as string).then(dto => {
       setMovie(dto);
-      setRender(true);
+      setMovieLoaded(true);
     });
   },[]);
 
@@ -55,12 +55,12 @@ export function EditForm() {
         style={{ width: `${formWidthPx}px`, left: `${formLeft}%` }}
         onSubmit={handleSubmit(submit)}
       >
-        {!movie && !isRender && (
+        {!movie && !isMovieLoaded && (
           <div className="details__header-wrapper details-content-wrapper">
             <h1 className="details__header details-header">Loading...</h1>
           </div>
         )}
-        {isRender && !movie && (
+        {isMovieLoaded && !movie && (
           <div className="details__header-wrapper details-content-wrapper">
             <h1 className="details__header details-header">Not found</h1>
             <button
@@ -71,7 +71,7 @@ export function EditForm() {
             </button>
           </div>
         )}
-        {isRender && movie && (
+        {isMovieLoaded && movie && (
           <>
             <div className="form__header-wrapper form-header-wrapper">
               <h1 className="form__header form-header">Изменить фильм</h1>

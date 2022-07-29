@@ -8,7 +8,7 @@ import './detailsStyles.scss';
 export function DetailsComponent() {
   const params = useParams();
   const navigate = useNavigate();
-  const [isRender, setRender] = useState(false);
+  const [isMovieLoaded, setMovieLoaded] = useState(false);
   const [movie, setMovie] = useState<MovieDto | null>(null);
   const [rate, setRate] = useState<number[]>([]);
 
@@ -24,19 +24,19 @@ export function DetailsComponent() {
     }
     getMovie(params.id as string).then((dto) => {
       setMovie(dto);
-      setRender(true);
+      setMovieLoaded(true);
     });
   },[]);
 
   useEffect(() => {
-    if (isRender) {
+    if (isMovieLoaded) {
       if (movie) {
         const newRate = new Array(movie.rate);
         newRate.fill(0);
         setRate(newRate);
       }
     }
-  },[isRender]);
+  },[isMovieLoaded]);
 
   return (
     <section 
@@ -48,12 +48,12 @@ export function DetailsComponent() {
         style={{ width: `${formWidthPx}px`, left: `${formLeft}%` }}
         onClick={event => event.stopPropagation()}
       >
-        {!movie && !isRender && (
+        {!movie && !isMovieLoaded && (
           <div className="details__header-wrapper details-content-wrapper">
             <h1 className="details__header details-header">Loading...</h1>
           </div>
         )}
-        {isRender && !movie && (
+        {isMovieLoaded && !movie && (
           <div className="details__header-wrapper details-content-wrapper">
             <h1 className="details__header details-header">Not found</h1>
             <button
@@ -64,7 +64,7 @@ export function DetailsComponent() {
             </button>
           </div>
         )}
-        {isRender && movie && (
+        {isMovieLoaded && movie && (
           <>
             <div className="details__header-wrapper details-content-wrapper">
               <h1 className="details__header details-header">Детали</h1>
