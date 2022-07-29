@@ -54,7 +54,7 @@ export function DetailsComponent(props: DetailsProps) {
           <p className="details-label">Описание:</p>
           <textarea
             readOnly={true}
-            defaultValue={movie.comment as string}
+            defaultValue={movie.comment || ''}
             className="details__comment details-comment"
           />
         </div>
