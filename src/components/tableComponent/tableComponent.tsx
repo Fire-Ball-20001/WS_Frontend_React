@@ -39,11 +39,11 @@ export function TableComponent() {
   },[onUpdate]);
 
   return (
-    <div className="table-wrapper twrapper">
-      <section className='twrapper__button-section button-section'>
+    <div className="table__wrapper table-wrapper">
+      <section className='table-wrapper__button-section button-section'>
         <button
           title='Create Movie'
-          className="twrapper__create-button create-button"
+          className="table-wrapper__create-button create-button"
           onClick={() => navigate('create')}
         >
           +
@@ -56,8 +56,8 @@ export function TableComponent() {
           r
         </button>
       </section>
-      <table className="twraper__table table" rules={'rows'}>
-        <tbody className="table__body tbody">
+      <table className="table-wraper__table table" rules={'rows'}>
+        <tbody className="table__body table-body">
           {Array.from(movies).map((element: MovieListDto, index: number) => (
             <RowComponent key={index} data={element} onUpdate={setOnUpdate} />
           ))}
