@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
-import { CreateFormData } from '../../interfaces/createFormData';
-import { CreateFormProps } from '../../interfaces/createFormProps';
+import { createMovie } from '../../actions/actionsMovies';
+import { CreateMovieDto } from '../../models/createMovieDto';
 
 import '../../styles/forms.scss';
 
-export function CreateForm(props: CreateFormProps) {
+export function CreateForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateFormData>();
+  } = useForm<CreateMovieDto>();
+  const [errorDate, setErrorDate] = useState(false);
 
   const navigate = useNavigate();
 
   const formWidthPx = 350;
 
-  const submit: SubmitHandler<CreateFormData> = (data) => {
-    props.onSumbit(data, props.setMovies);
+  const submit: SubmitHandler<CreateMovieDto> = data => {
+    if(Date.parse(data.date) > Date.now()) {
+      setErrorDate(true);
+      return;
+    }
+    createMovie(data);
     navigate('/');
   };
   const maxProcents = 100;
@@ -94,7 +99,7 @@ export function CreateForm(props: CreateFormProps) {
           <input
             id="form-date"
             className={`form__date form-date ${
-              (errors.date && 'input-error') || (!errors.date && '')
+              ((errors.date || errorDate) && 'input-error') || (!errors.date && '')
             }`}
             type="date"
             {...register('date', { required: true })}

@@ -32,3 +32,16 @@
   vertical-align: middle;
   -webkit-text-stroke-width: thick;
 }
+
+.update-button {
+  width: 30px;
+  background: blue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.button-section {
+  display: flex;
+  width: 100%;
+}

@@ -1,4 +1,4 @@
-export interface MovieDto {
+export interface UpdateMovieDto {
     title: string,
     rate: number,
     comment: string | null,

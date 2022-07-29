@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { RowComponent } from '../Row/rowComponent';
+import { RowComponent } from '../row/rowComponent';
 import { getPages } from './pageManager';
 import { PageComponent } from '../pageComponent/PageComponent';
-import { MovieDto } from '../../models/movieDto';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 import './tableStyles.scss';
 import { getList } from '../../actions/actionsMovies';
 import { MovieListDto } from '../../models/movieListDto';
 import { CollectionDto } from '../../interfaces/collectionDto';
-export interface Data {
-  data: MovieDto[];
-  deleteData: CallableFunction;
-}
 
-export function TableComponent(props: Data) {
+export function TableComponent() {
   const countsElementsInPage = 20;
   const timeUpdate = 5000;
   const [page, setPage] = useState(0);
@@ -45,20 +40,26 @@ export function TableComponent(props: Data) {
 
   return (
     <div className="table-wrapper twrapper">
-      <button
-        className="twrapper__create-button create-button"
-        onClick={() => navigate('create')}
-      >
-        +
-      </button>
+      <section className='twrapper__button-section button-section'>
+        <button
+          title='Create Movie'
+          className="twrapper__create-button create-button"
+          onClick={() => navigate('create')}
+        >
+          +
+        </button>
+        <button
+          title='Update'
+          onClick={() => setOnUpdate(true)}
+          className="twrapper__update-button update-button"
+        >
+          r
+        </button>
+      </section>
       <table className="twraper__table table" rules={'rows'}>
         <tbody className="table__body tbody">
           {Array.from(movies).map((element: MovieListDto, index: number) => (
-            <RowComponent
-              key={index}
-              data={element}
-              onUpdate={setOnUpdate}
-            />
+            <RowComponent key={index} data={element} onUpdate={setOnUpdate} />
           ))}
         </tbody>
       </table>

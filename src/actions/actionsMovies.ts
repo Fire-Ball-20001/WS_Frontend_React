@@ -28,7 +28,8 @@ export function getList(page: number, size: number) {
 export function getMovie(id: string) {
     return instance
       .get<MovieDto>(`movies/${id}`)
-      .then(res => res.data);
+      .then(res => res.data)
+      .catch(() => null);
   }
 
   export function deleteMovie(id: string) {
