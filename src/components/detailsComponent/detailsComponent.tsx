@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigateFunction, useNavigate, useParams } from 'react-router-dom';
-import { DetailsProps } from '../../interfaces/DetailsProps';
-import { Movie } from '../../models/movie';
+import { DetailsProps } from '../../interfaces/detailsProps';
+import { MovieDto } from '../../models/movieDto';
 
 import './detailsStyles.scss';
 
@@ -9,8 +9,8 @@ export function DetailsComponent(props: DetailsProps) {
   const params = useParams();
   const navigate = useNavigate();
 
-  const movie: Movie | undefined = props.movies.find(
-    (movie: Movie) => movie.id === params.id
+  const movie: MovieDto | undefined = props.movies.find(
+    (movie: MovieDto) => movie.id === params.id
   );
 
   if (!movie) {

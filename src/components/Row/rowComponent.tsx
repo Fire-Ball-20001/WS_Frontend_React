@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Movie } from '../../models/movie';
+import { MovieDto } from '../../models/movieDto';
 
 import './rowStyles.scss';
 
 export interface SingleRowElement {
-  data: Movie;
+  data: MovieDto;
   onDelete: CallableFunction;
 }
 

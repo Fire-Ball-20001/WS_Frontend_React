@@ -1,7 +1,6 @@
-export interface Movie {
+export interface MovieListDto {
     id: string,
     title: string,
     rate: number,
-    comment: string | null,
     date: string
 }

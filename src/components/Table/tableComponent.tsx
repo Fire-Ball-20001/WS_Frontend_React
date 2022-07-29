@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { RowComponent} from '../Row/rowComponent';
 import { getDataIsPage, getPages } from './pageManager';
 import { PageComponent } from '../pageComponent/PageComponent';
-import { Movie } from '../../models/movie';
+import { MovieDto } from '../../models/movieDto';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 import './tableStyles.scss';
 export interface Data {
-  data: Movie[],
+  data: MovieDto[],
   deleteData: CallableFunction
 }
 
@@ -22,7 +22,7 @@ export function TableComponent(props: Data) {
       <table className='twraper__table table' rules={'rows'}>
         <tbody className='table__body tbody'>
           {Array.from(getDataIsPage(props.data, page, countsElementsInPage)).map(
-            (element: Movie, index: number) => (
+            (element: MovieDto, index: number) => (
               <RowComponent
                 key={index}
                 data={element}

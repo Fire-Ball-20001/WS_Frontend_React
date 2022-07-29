@@ -1,10 +1,10 @@
-import { Movie } from '../../models/movie';
+import { MovieDto } from '../../models/movieDto';
 
 export function getDataIsPage(
-  data: Movie[],
+  data: MovieDto[],
   page: number,
   count: number
-): Movie[] {
+): MovieDto[] {
   if (page > getPages(data, count) || page < 0) {
     return getDataIsPage(data, 0, count);
   }
@@ -16,6 +16,6 @@ export function getDataIsPage(
   );
 }
 
-export function getPages(data: Movie[], count: number): number {
+export function getPages(data: MovieDto[], count: number): number {
   return Math.ceil(data.length / count);
 }

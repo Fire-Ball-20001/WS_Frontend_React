@@ -4,7 +4,7 @@ import { CreateForm } from './components/createFormComponent/createForm';
 import { CreateFormData } from './interfaces/createFormData';
 import { TableComponent } from './components/Table/tableComponent';
 import { v4 as uuidv4 } from 'uuid';
-import { Movie } from './models/movie';
+import { MovieDto } from './models/movieDto';
 import { EditForm } from './components/editFormComponent/editForm';
 import { EditFormData } from './interfaces/editFormData';
 
@@ -47,8 +47,8 @@ function App() {
 }
 
 function addMovie(movies: CreateFormData, setMovies: CallableFunction) {
-  setMovies((oldData: Movie[]) => {
-    const movie: Movie = {
+  setMovies((oldData: MovieDto[]) => {
+    const movie: MovieDto = {
       id: uuidv4(),
       title: movies.title,
       rate: movies.rate,
@@ -61,8 +61,8 @@ function addMovie(movies: CreateFormData, setMovies: CallableFunction) {
 }
 
 function editMovie(movies: EditFormData, setMovies: CallableFunction) {
-  setMovies((oldData: Movie[]) => {
-    const movie: Movie = {
+  setMovies((oldData: MovieDto[]) => {
+    const movie: MovieDto = {
       id: movies.id,
       title: movies.title,
       rate: movies.rate,
