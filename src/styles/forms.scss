@@ -1,0 +1,93 @@
+@import 'variables';
+@import 'globalStyles';
+
+%form-wrapper-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+%form-input {
+  border-radius: 5px;
+  border: 1px solid #888;
+}
+
+.form-wrapper {
+  background: #00000032;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.form {
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  position: relative;
+  top: 30%;
+}
+
+.form-header-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.form-title-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.form-rate-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.form-comment-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.form-date-wrapper {
+  @extend %form-wrapper-content;
+}
+
+.form-header {
+  @extend %reset-style;
+
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.form-title {
+  @extend %form-input;
+}
+
+.form-rate {
+  @extend %form-input;
+}
+
+.form-comment {
+  @extend %form-input;
+
+  height: 50px;
+  resize: none;
+}
+
+.form-date {
+  @extend %form-input;
+}
+
+.input-error {
+  border-color: red;
+  outline-color: red;
+}
+
+.form-button-submit {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background: green;
+  color: white;
+}
+
+.close-button {
+  color: red;
+}

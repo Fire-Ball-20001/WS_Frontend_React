@@ -1,0 +1,45 @@
+@import '../../styles/globalStyles';
+
+%details-wrapper-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.details-wrapper {
+  background: #00000032;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.details {
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  position: relative;
+  top: 30%;
+}
+
+.details-content-wrapper {
+  @extend %details-wrapper-content;
+}
+
+.details-header {
+  @extend %reset-style;
+
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.details-rate {
+  display: flex;
+}
+
+.details-comment {
+  width: 70%;
+  height: 60px;
+  resize: none;
+}

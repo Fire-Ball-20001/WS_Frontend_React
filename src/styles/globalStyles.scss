@@ -1,0 +1,28 @@
+@import 'variables';
+@import 'fonts';
+
+%reset-style {
+  color: inherit;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: inherit;
+}
+
+body {
+  @extend %reset-style;
+
+  background: $background-body;
+}
+
+button {
+  @extend %reset-style;
+
+  cursor: pointer;
+}
+
+p {
+  @extend %reset-style;
+
+  font-size: 14px;
+}

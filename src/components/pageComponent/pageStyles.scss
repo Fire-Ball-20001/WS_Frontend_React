@@ -1,0 +1,36 @@
+%page-button {
+  color: black;
+  border-radius: 12px;
+  border: 1px solid #444;
+  padding: 3px;
+  background: #ccc;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+}
+
+%page-button-disabled {
+  background: #777;
+}
+
+.page-section {
+  display: flex;
+  gap: 5px 5px;
+  justify-content: center;
+}
+
+.lbutton {
+  @extend %page-button;
+}
+
+.rbutton {
+  @extend %page-button;
+}
+
+.lbutton:disabled {
+  @extend %page-button-disabled;
+}
+
+.rbutton:disabled {
+  @extend %page-button-disabled;
+}

@@ -1,0 +1,34 @@
+@import '../../styles/variables';
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3px 3px;
+  padding-top: 30px;
+  padding-left: $table-padding;
+  padding-right: $table-padding;
+  align-items: center;
+}
+
+.table {
+  border: 1px solid #ddd;
+  background: $background-table;
+  border-radius: 10px;
+  padding: 3px;
+  width: 100%;
+  border-spacing: 5px;
+}
+
+.tbody {
+  border: 5px solid transparent;
+  column-gap: 5px;
+}
+
+.create-button {
+  color: white;
+  background: #84c227;
+  border-radius: 5px;
+  width: 100%;
+  vertical-align: middle;
+  -webkit-text-stroke-width: thick;
+}
