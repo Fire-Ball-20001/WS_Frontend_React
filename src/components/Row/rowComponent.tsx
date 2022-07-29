@@ -15,13 +15,28 @@ export function RowComponent(props: SingleRowElement) {
   rate.fill(0);
   return (
     <tr className="table__row row-table">
-      <td className="row-table__left-ceil lceil-table common-ceil" onClick={() => navigate(`/details/${props.data.id}`)}>
+      <td
+        className="row-table__left-ceil lceil-table common-ceil"
+        onClick={() => navigate(`/details/${props.data.id}`)}
+      >
         <p>{props.data.title}</p>
       </td>
-      <td className='common-ceil' onClick={() => navigate(`/details/${props.data.id}`)}>
-        <section className="row-table__rate-ceil rate-ceil">{rate.map((_, index: number) => <p key={index} className="star-style">&#xf0ab;</p> )}</section>
+      <td
+        className="common-ceil"
+        onClick={() => navigate(`/details/${props.data.id}`)}
+      >
+        <section className="row-table__rate-ceil rate-ceil">
+          {rate.map((_, index: number) => (
+            <p key={index} className="star-style">
+              &#xf0ab;
+            </p>
+          ))}
+        </section>
       </td>
-      <td className='common-ceil' onClick={() => navigate(`/details/${props.data.id}`)}>
+      <td
+        className="common-ceil"
+        onClick={() => navigate(`/details/${props.data.id}`)}
+      >
         <p>{props.data.date}</p>
       </td>
       <td className="row-table__edit-ceil ceil-edit">
