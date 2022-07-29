@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { CreateForm } from './components/createFormComponent/createForm';
-import { TableComponent } from './components/table/tableComponent';
+import { TableComponent } from './components/tableComponent/tableComponent';
 import { EditForm } from './components/editFormComponent/editForm';
 
 import './styles/globalStyles.scss';

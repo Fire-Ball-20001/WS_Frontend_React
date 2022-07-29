@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { RowComponent } from '../row/rowComponent';
+import { useEffect, useState } from 'react';
+import { RowComponent } from '../rowComponent/rowComponent';
 import { getPages } from './pageManager';
 import { PageComponent } from '../pageComponent/PageComponent';
 import { Outlet, useNavigate } from 'react-router-dom';

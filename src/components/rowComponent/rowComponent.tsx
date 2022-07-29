@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { deleteMovie } from '../../actions/actionsMovies';
 import { MovieListDto } from '../../models/movieListDto';
