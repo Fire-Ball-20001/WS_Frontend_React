@@ -4,12 +4,12 @@ import { MovieDto } from '../models/movieDto';
 import { MovieListDto } from '../models/movieListDto';
 import { CreateMovieDto } from '../models/createMovieDto';
 
-const token = '';
+const token = '75b885c6-2126-4291-a797-d975c05827fa';
 
 const instance = axios.create({
   baseURL: 'http://students.dev.thewhite.ru/api/',
   headers: {
-    Autorization: token,
+    'Authorization': token,
     'Content-Type': 'application/json',
   },
 });

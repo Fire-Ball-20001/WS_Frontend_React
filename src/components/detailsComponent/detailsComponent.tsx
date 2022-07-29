@@ -26,9 +26,7 @@ export function DetailsComponent(props: DetailsProps) {
   const formLeft = (maxProcents - (formWidthPx / window.innerWidth) * maxProcents) / 2;
 
   return (
-    <section
-      className="details-wrapper"
-    >
+    <section className="details-wrapper">
       <div
         className="details"
         style={{ width: `${formWidthPx}px`, left: `${formLeft}%` }}
@@ -37,7 +35,7 @@ export function DetailsComponent(props: DetailsProps) {
           <h1 className="details__header details-header">Детали</h1>
           <button
             className="details__close-button close-button"
-            onClick={event => closeDetails(event, navigate)}
+            onClick={(event) => closeDetails(event, navigate)}
           >
             X
           </button>
@@ -48,19 +46,25 @@ export function DetailsComponent(props: DetailsProps) {
         </div>
         <div className="details__rate-wrapper details-content-wrapper">
           <p className="details-label">Оценка:</p>
-          <section className="details__rate details-rate">{rate.map((_, index: number) => <p key={index} className="star-style">&#xf0ab;</p> )}</section>
+          <section className="details__rate details-rate">
+            {rate.map((_, index: number) => (
+              <p key={index} className="star-style">
+                &#xf0ab;
+              </p>
+            ))}
+          </section>
         </div>
         <div className="details__comment-wrapper details-content-wrapper">
           <p className="details-label">Описание:</p>
           <textarea
-            readOnly={true}
-            defaultValue={movie.comment as string}
+            readOnly
+            defaultValue={movie.comment || ''}
             className="details__comment details-comment"
           />
         </div>
         <div className="details__date-wrapper details-content-wrapper">
           <p className="details-label">Дата:</p>
-          <p defaultValue={movie.date} className="details__date details-date">
+          <p className="details__date details-date">
             {movie.date}
           </p>
         </div>

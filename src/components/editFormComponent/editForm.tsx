@@ -87,7 +87,7 @@ export function EditForm(props: EditFormProps) {
         <div className="form__comment-wrapper form-comment-wrapper">
           <label htmlFor='form-comment' className="form-label">Описание</label>
           <textarea
-          defaultValue={movie.comment as string}
+          defaultValue={movie.comment || ''}
           id='form-comment'
             className={`form__comment form-comment ${
               (errors.comment && 'input-error') || (!errors.comment && '')
